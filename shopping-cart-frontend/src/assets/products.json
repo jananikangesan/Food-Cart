@@ -1,0 +1,182 @@
+[
+    {
+        "id":1,
+        "name":"Farmers Pick",
+        "amt":"299",
+        "shop":"Pizza Hut",
+        "ftype":"Pizza",
+        "pic":"images/1.jpg",
+        "latest":"No"
+    },
+    {
+        "id":2,
+        "name":"Paper Roast Dosa",
+        "amt":"65",
+        "shop":"Sri Saivihar",
+        "ftype":"Veg",
+        "pic":"images/2.jpg",
+        "latest":"No"
+    },
+    {
+        "id":3,
+        "name": "Alfredo Pasta",
+        "amt": "185",
+        "shop":"LAKSHMI FOOD",
+        "ftype":"Veg",
+        "pic":"/images/3.jpg",
+        "latest":"Yes"
+    },
+    {
+        "id":4,
+        "name":"Chicken 65",
+        "amt":"220",
+        "shop":"Salem Rr Briyani",
+        "ftype":"Non-Veg",
+        "pic":"images/4.jpg",
+        "latest":"Yes"
+    },
+    {
+        "id":5,
+        "name":"Momo Mia Meal",
+        "amt":"229",
+        "shop":"Pizza Hut",
+        "ftype":"Pizza",
+        "pic":"images/5.jpg",
+        "latest":"No"
+    },
+    {
+        "id":6,
+        "name":"Orange Juice",
+        "amt":"70",
+        "shop":"JUICE MALL",
+        "ftype":"Juice",
+        "pic":"images/6.jpg",
+        "latest":"No"
+    },
+    {
+        "id":7,
+        "name":"Milk Halwa",
+        "amt":"77",
+        "shop":"Shri Gupta Sweets",
+        "ftype":"Sweet",
+        "pic":"images/7.jpeg",
+        "latest":"No"
+    },
+    {
+        "id":8,
+        "name":"Vegetable Soup",
+        "amt":"123",
+        "shop":"Sri Saivihar",
+        "ftype":"Veg",
+        "pic":"images/8.jpg",
+        "latest":"No"
+    },
+    {
+        "id":9,
+        "name":"Hyderabad Chicken Dry",
+        "amt":"235",
+        "shop":"LAKSHMI FOOD",
+        "ftype":"Non-Veg",
+        "pic":"images/9.jpg",
+        "latest":"No"
+    },
+    {
+        "id":10,
+        "name":"Spicy Chicken Afghani",
+        "amt":"350",
+        "shop":"Tandoori Wala",
+        "ftype":"Non-Veg",
+        "pic":"images/10.jpg",
+        "latest":"No"
+    },
+    {
+        "id":11,
+        "name":"Veg Seekh Kebab",
+        "amt":"230",
+        "shop":"Tandoori Wala",
+        "ftype":"Veg",
+        "pic":"images/11.jpg",
+        "latest":"Yes"
+    },
+    {
+        "id":12,
+        "name":"Malai Doda",
+        "amt":"35",
+        "shop":"Shri Gupta Sweets",
+        "ftype":"Sweet",
+        "pic":"images/12.jpg",
+        "latest":"No"
+    },
+    {
+        "id":13,
+        "name":"Jam Roll Cake",
+        "amt":"101",
+        "shop":"Henry & Wolsey",
+        "ftype":"Cake",
+        "pic":"images/13.jpg",
+        "latest":"No"
+    },
+    {
+        "id":14,
+        "name":"Curd Vadai",
+        "amt":"38",
+        "shop":"Sri Saivihar",
+        "ftype":"Veg",
+        "pic":"images/14.jpg",
+        "latest":"No"
+    },
+    {
+        "id":15,
+        "name":"Momo Mia Choco Sundae Meal",
+        "amt":"319",
+        "shop":"Pizza Hut",
+        "ftype":"Pizza",
+        "pic":"images/15.jpg",
+        "latest":"No"
+    },
+    {
+        "id":16,
+        "name":"Classic Walnut Brownie",
+        "amt":"157",
+        "shop":"Shris Cake Zone",
+        "ftype":"Cake",
+        "pic":"images/16.jpg",
+        "latest":"No"
+    },
+    {
+        "id":17,
+        "name":"Cotton Candy Scoop",
+        "amt":"99",
+        "shop":"Cream & Fudge",
+        "ftype":"IceCream",
+        "pic":"images/17.jpg",
+        "latest":"Yes"
+    },
+    {
+        "id":18,
+        "name":"Veg Extravaganza Pizza",
+        "amt":"219",
+        "shop":"LAKSHMI FOOD",
+        "ftype":"Pizza",
+        "pic":"images/18.jpg",
+        "latest":"No"
+    },
+    {
+        "id":19,
+        "name":"Cream of Chicken Soup",
+        "amt":"150",
+        "shop":"Tandoori Wala",
+        "ftype":"Soup",
+        "pic":"images/19.jpg",
+        "latest":"No"
+    },
+    {
+        "id":20,
+        "name":"Paratha",
+        "amt":"65",
+        "shop":"pugal Ragu Bawa Tiffen Center",
+        "ftype":"Veg",
+        "pic": "images/20.jpg",
+        "latest":"No"
+    }
+]
