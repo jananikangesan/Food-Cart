@@ -9,6 +9,7 @@
     align-items: center;
     margin-bottom: 10px;
     border: 1px solid #ccc;
+    position: relative;
 }
 .cart-product-details h3{
     font-size: 20px;
@@ -32,4 +33,10 @@
     font-weight: 600;
     background-color:rgb(225, 218, 209);
     border: 1px solid #ccc;
+}
+
+.btn-close{
+    position:absolute;
+   cursor: pointer;
+   right: 10px;
 }

@@ -13,6 +13,10 @@ const ViewCart = () => {
         
     },[cart]);
 
+    const removeCart=(productId)=>{
+        setCart(cart.filter((c)=>c.id!==productId));
+      }
+
   return (
     <>
         <h1 className='cart-heading'>Cart Products</h1>
@@ -25,8 +29,12 @@ const ViewCart = () => {
                         </div>
                    
                         <div className="cart-product-details">
+
+                            <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"  onClick={()=>removeCart(product.id)}/>
+                                
                             <h3>{product.name}</h3>
                             <p>Price Rs: {product.amt}</p>
+                           
                         </div>
                     </div>
                 ))
