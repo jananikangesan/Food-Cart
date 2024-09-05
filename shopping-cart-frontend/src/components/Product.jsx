@@ -8,6 +8,9 @@ const Product = ({product}) => {
   const {cart,setCart}=useContext(cartContext);
 
   const name=product.name.length>21 ?product.name.substring(0,20)+"..  ":product.name;
+
+  // Check if the product is already in the cart
+  const isInCart = cart.some((cartItem) => cartItem.id === product.id);
   
   const addCart=()=>{
     setCart([...cart,product]); 
@@ -31,13 +34,13 @@ const Product = ({product}) => {
           </div>
 
         </Popup>
-       
+
        </div>
 
        <div className="details">
         <h4>{name}</h4>
         <p>Price Rs:{product.amt}</p>
-        {cart.includes(product)?<button className='btnRemove' onClick={removeCart}>Remove from Cart</button>: <button onClick={addCart}>Add to Cart</button>}
+        {isInCart?<button className='btnRemove' onClick={removeCart}>Remove from Cart</button>: <button onClick={addCart}>Add to Cart</button>}
        </div>
     </div>
   )
