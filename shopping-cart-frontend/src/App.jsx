@@ -7,6 +7,8 @@ import ViewCart from './components/ViewCart'
 import { cartContext } from './components/cartContext';
 import Footer from './components/Footer'
 import Search from './components/Search'
+import ViewProducts from './components/products/ViewProducts'
+import CreateProduct from './components/products/CreateProduct'
 
 function App() {
 
@@ -23,12 +25,15 @@ function App() {
               <Route path='/' element={<Home/>}/>
               <Route path='/Cart' element={<ViewCart/>}/>
               <Route path='/Search' element={<Search/>}/>
+
+              <Route path='/showProducts' element={<ViewProducts/>}/>
+              <Route path='/createProducts' element={<CreateProduct/>}/>
             </Routes>
           </div>
         </BrowserRouter>
       </cartContext.Provider>
       <Footer/>
-      
+
     </>
   )
 }
