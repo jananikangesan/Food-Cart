@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,12 +17,17 @@ public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  public String id;
-  public String name;
-  public String amt;
-  public String shop;
-  public String ftype;
-  public String pic;
-  public String latest;
+  private String id;
+  private String name;
+  private String amt;
+  private String shop;
+  private String ftype;
+  private String latest;
+
+  @OneToOne
+  @JoinColumn(name = "pic")
+  private FileData pic;
+
+
 
 }

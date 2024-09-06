@@ -25,13 +25,30 @@ const CreateProduct = () => {
     const submitProducts=(e)=>{
         e.preventDefault();
 
-        const product={name,amt,shop,ftype,pic,latest};
-       console.log(product);
+        
+        if (!pic) {
+            console.error("No file selected.");
+            return;
+        }
+  
+  
+        const formData = new FormData();
+        formData.append("image", pic);  // Append the actual file object
+        formData.append("name", name);
+        formData.append("amt", amt);
+        formData.append("shop", shop);
+        formData.append("ftype", ftype);
+        formData.append("latest", latest);
+    
+       
+        console.log(formData);
 
-        saveProducts(product).then((response)=>{
+        saveProducts(formData).then((response)=>{
             console.log(response.data);
             navigator('/showProducts');
-        })
+        }).catch((error) => {
+            console.error("Error saving product:", error);
+          });
     }
 
   return (
