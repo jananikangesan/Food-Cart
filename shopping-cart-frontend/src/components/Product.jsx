@@ -22,11 +22,11 @@ const Product = ({product}) => {
     <div className='product'>
        <div className="img">
         <Popup trigger={
-           <img src={`${product.pic}`} alt={product.name}/>
+           <img src={`images/${product.pic.name}`} alt={product.name}/>
         } position="center">
 
           <div className='pop-up'>
-            <img src={`${product.pic}`} alt={product.name}/>
+            <img src={`images/${product.pic.name}`} alt={product.name}/>
             <h4>{product.name}</h4>
             <p>Shop: {product.shop}</p>
             <p>Food Type: {product.ftype}</p>

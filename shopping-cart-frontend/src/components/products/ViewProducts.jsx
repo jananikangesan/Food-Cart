@@ -67,7 +67,7 @@ const ViewProducts = () => {
               <td>{item.ftype}</td>
               <td>{item.amt}</td>
               <td>{item.latest}</td>
-              <td><img src={`${item.pic}`} alt={item.name} className='img-style'/></td>
+              <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style'/></td>
               <td><Button variant="primary"><FaEdit /></Button></td>
               <td><Button variant="danger" ><RiDeleteBin6Line /></Button></td>
             </tr>
