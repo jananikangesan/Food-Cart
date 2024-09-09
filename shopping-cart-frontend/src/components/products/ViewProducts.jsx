@@ -8,6 +8,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoMdAddCircle } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import '../../css/Style.css';
+import { downloadImage } from '../../services/FileDataService';
 
 
 const ViewProducts = () => {
@@ -24,6 +25,28 @@ const ViewProducts = () => {
       console.error(error);
     })
   },[])
+
+  const handleDownload = (filename) => {
+    //console.log(filename);
+    downloadImage(filename)
+      .then((response) => {
+        // Create a Blob from the response
+        const blob = new Blob([response.data], { type: response.headers['content-type'] });
+        const url = window.URL.createObjectURL(blob);
+
+        // Create a link element to trigger the download
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;  // Set the file name for download
+        link.click();  // Trigger the download
+
+        // Cleanup the URL object after download
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.error('Error downloading image:', error);
+      });
+  };
 
   return (
     <div className="container mt-5">
@@ -67,7 +90,7 @@ const ViewProducts = () => {
               <td>{item.ftype}</td>
               <td>{item.amt}</td>
               <td>{item.latest}</td>
-              <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style'/></td>
+              <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style' onClick={()=>handleDownload(item.pic.name)}/></td>
               <td><Button variant="primary"><FaEdit /></Button></td>
               <td><Button variant="danger" ><RiDeleteBin6Line /></Button></td>
             </tr>

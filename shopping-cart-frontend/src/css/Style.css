@@ -3,6 +3,12 @@
 }       
 
 .img-style{
-    height: 30px;
-    width: 50px;
+    height: 40px;
+    width: 60px;
+    cursor: pointer;
+}
+.showImg{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
