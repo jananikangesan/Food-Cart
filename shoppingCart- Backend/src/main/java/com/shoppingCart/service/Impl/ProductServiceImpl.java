@@ -4,6 +4,7 @@ import com.shoppingCart.model.Product;
 import com.shoppingCart.repository.ProductRepository;
 import com.shoppingCart.service.ProductService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +23,17 @@ public class ProductServiceImpl implements ProductService {
   public Product saveProduct(Product product) {
     return productRepository.save(product);
   }
+  public Optional<Product> findProduct(String id){
+    return productRepository.findById(id);
+  }
+  @Override
+  public String deleteProduct(String id) {
+    Boolean student=productRepository.existsById(id);
+    if(student) {
+      productRepository.deleteById(id);
+      return "Product Details deleted successfully";
+    }
+    return "no record found";
+  }
+
 }

@@ -9,3 +9,7 @@ export const listProducts=()=>{
 export const saveProducts=(formData)=>{
     return axios.post(REST_API_BASE_URL+"/addProduct",formData);
 }
+
+export const deleteProduct=(productId)=>{
+    return axios.delete(REST_API_BASE_URL+"/deleteProduct/"+productId);
+}

@@ -47,4 +47,14 @@ public class StorageServiceImpl implements StorageService {
   public List<FileData> getAllProduct() {
     return fileDataRepository.findAll();
   }
+
+  @Override
+  public String deleteImage(String id) {
+    Boolean image=fileDataRepository.existsById(id);
+    if(image) {
+      fileDataRepository.deleteById(id);
+      return "Image deleted successfully";
+    }
+    return "no record found";
+  }
 }

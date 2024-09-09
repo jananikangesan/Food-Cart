@@ -12,4 +12,6 @@ public interface StorageService {
   public byte[] downloadImageFromFileSystem(String fileName) throws IOException;
 
   public List<FileData> getAllProduct();
+
+  public String deleteImage(String id);
 }
