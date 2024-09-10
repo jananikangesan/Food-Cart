@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CiSearch } from "react-icons/ci";
 import "../../css/Search.css";
-import { listProducts } from '../../services/ProductService';
+import { deleteProduct, listProducts } from '../../services/ProductService';
 import Button from 'react-bootstrap/Button';
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -48,6 +48,14 @@ const ViewProducts = () => {
       });
   };
 
+  const handleDelete=(productId)=>{
+    deleteProduct(productId).then((response)=>{
+      console.log(response.data);
+    }).catch((error)=>{
+      console.error(error);
+    })
+  }
+
   return (
     <div className="container mt-5">
       <h4 className='text-primary'>Search Product</h4>
@@ -92,7 +100,7 @@ const ViewProducts = () => {
               <td>{item.latest}</td>
               <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style' onClick={()=>handleDownload(item.pic.name)}/></td>
               <td><Button variant="primary"><FaEdit /></Button></td>
-              <td><Button variant="danger" ><RiDeleteBin6Line /></Button></td>
+              <td><Button variant="danger" onClick={()=>handleDelete(item.id)}><RiDeleteBin6Line /></Button></td>
             </tr>
           ))}
         </tbody>
