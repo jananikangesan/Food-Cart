@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className='navbar'>
-        <div className="logo"><img src='images/food-cart-logo.jpg' alt="Logo"/></div>
+        <div className="logo"><img src='food-cart-logo.jpg' alt="Logo"/></div>
         <ul>
             <li>
                 <Link to={"/"}><FaHome size={35}/></Link>

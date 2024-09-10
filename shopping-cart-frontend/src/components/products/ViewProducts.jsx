@@ -74,7 +74,7 @@ const ViewProducts = () => {
         }).catch((error)=>{
           console.error(error);
         })
-        
+
       }
     });
     
@@ -124,7 +124,7 @@ const ViewProducts = () => {
               <td>{item.name}</td>
               <td>{item.shop}</td>
               <td>{item.ftype}</td>
-              <td>{item.amt}</td>
+              <td>Rs {item.amt}</td>
               <td>{item.latest}</td>
               <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style' onClick={()=>handleDownload(item.pic.name)}/></td>
               <td><Button variant="primary"onClick={()=>handleUpdate(item.id)}><FaEdit /></Button></td>
