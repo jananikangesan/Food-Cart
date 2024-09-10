@@ -6,6 +6,7 @@ import { cartContext } from './cartContext';
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Header = () => {
 
@@ -23,6 +24,9 @@ const Header = () => {
             </li>
             <li>
                 <Link to={"/Search"}><FaSearch size={35}/></Link>
+            </li>
+            <li>
+                <Link to={"/showProducts"}><FaArrowAltCircleRight size={35}/></Link>
             </li>
         </ul>
     </div>
