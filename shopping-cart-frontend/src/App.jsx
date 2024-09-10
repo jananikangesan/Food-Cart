@@ -28,6 +28,7 @@ function App() {
 
               <Route path='/showProducts' element={<ViewProducts/>}/>
               <Route path='/createProducts' element={<CreateProduct/>}/>
+              <Route path='/updateProduct/:id' element={<CreateProduct/>}/>
             </Routes>
           </div>
         </BrowserRouter>

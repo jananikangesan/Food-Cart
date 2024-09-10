@@ -56,6 +56,10 @@ const ViewProducts = () => {
     })
   }
 
+  const handleUpdate=(productId)=>{
+    navigate(`/updateProduct/${productId}`)
+  }
+
   return (
     <div className="container mt-5">
       <h4 className='text-primary'>Search Product</h4>
@@ -99,7 +103,7 @@ const ViewProducts = () => {
               <td>{item.amt}</td>
               <td>{item.latest}</td>
               <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style' onClick={()=>handleDownload(item.pic.name)}/></td>
-              <td><Button variant="primary"><FaEdit /></Button></td>
+              <td><Button variant="primary"onClick={()=>handleUpdate(item.id)}><FaEdit /></Button></td>
               <td><Button variant="danger" onClick={()=>handleDelete(item.id)}><RiDeleteBin6Line /></Button></td>
             </tr>
           ))}

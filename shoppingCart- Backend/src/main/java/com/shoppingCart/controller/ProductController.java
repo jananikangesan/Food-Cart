@@ -111,6 +111,11 @@ public class ProductController {
     }
     return null;
   }
+
+  @GetMapping("/getProduct/{id}")
+  public Optional<Product> getProducts(@PathVariable String id){
+    return productService.getProduct(id);
+  }
 }
 
 

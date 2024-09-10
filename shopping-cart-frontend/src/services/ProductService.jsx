@@ -13,3 +13,11 @@ export const saveProducts=(formData)=>{
 export const deleteProduct=(productId)=>{
     return axios.delete(REST_API_BASE_URL+"/deleteProduct/"+productId);
 }
+
+export const updateProduct=(formData,productId)=>{
+    return axios.put(REST_API_BASE_URL+`/updateProduct/${productId}`,formData,productId);
+}
+
+export const getProduct=(productId)=>{
+    return axios.get(REST_API_BASE_URL+`/getProduct/${productId}`);
+}

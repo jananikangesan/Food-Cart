@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../css/Style.css';
-import { saveProducts } from '../../services/ProductService';
-import { useNavigate } from 'react-router-dom';
+import { getProduct, saveProducts, updateProduct } from '../../services/ProductService';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const CreateProduct = () => {
 
@@ -11,7 +11,10 @@ const CreateProduct = () => {
     const [ftype,setFtype]=useState('');
     const [pic,setPic]=useState(null);
     const [latest,setLatest]=useState('');
+
     const [viewPic,setViewPic]=useState(null);
+
+    const navigator=useNavigate();
 
     const [errors,setErrors]=useState({
         name:'',
@@ -21,6 +24,36 @@ const CreateProduct = () => {
         pic:'',
         latest:''
     })
+
+    const {id}=useParams();
+
+    const pageTitle=()=>{
+        if(id){
+            return "Update Product";
+        }
+        return "Add Products";
+    }
+
+    useEffect(()=>{
+        if(id){
+            getProduct(id).then((response)=>{
+                setName(response.data.name);
+                setAmount(response.data.amt);
+                setShop(response.data.shop);
+                setFtype(response.data.ftype);
+                setLatest(response.data.latest);
+                setPic(response.data.pic[0]);
+
+                // Set the image preview if the pic is already saved
+                const imageUrl = `/images/${response.data.pic.name}`;
+                setViewPic(imageUrl);  // Assuming this URL points to your image endpoint
+
+            }).catch((error)=>{
+                console.error(error);
+                
+            })
+        }
+    },[id])
 
     const handleFileChange = (e) => {
         // Ensure a file is selected
@@ -45,9 +78,7 @@ const CreateProduct = () => {
         }
     };
 
-    const navigator=useNavigate();
-
-    const submitProducts=(e)=>{
+    const saveOrUpdateProducts=(e)=>{
         e.preventDefault();
 
         if(validateForm()){
@@ -64,13 +95,25 @@ const CreateProduct = () => {
                 console.log(key, value);
             }
 
+            if(id){
 
-            saveProducts(formData).then((response)=>{
-                console.log(response.data);
-                navigator('/showProducts');
-            }).catch((error) => {
-                console.error("Error saving product:", error);
-            });
+                updateProduct(formData,id).then((response)=>{
+                    console.log(response.data);
+                    navigator("/showProducts")
+                }).catch((error)=>{
+                    console.error(error);
+                })
+
+            }else{
+
+                saveProducts(formData).then((response)=>{
+                    console.log(response.data);
+                    navigator('/showProducts');
+                }).catch((error) => {
+                    console.error("Error saving product:", error);
+                });
+            }
+            
         }
 
     }
@@ -135,7 +178,7 @@ return (
     <div className='d-flex justify-content-center'>
         <div className="card">
             <div className="card-header">
-                <h4 className='text-center'>Add Products</h4>
+                <h4 className='text-center'>{pageTitle()}</h4>
             </div>
             <div className="card-body">
                 <form >
@@ -161,7 +204,7 @@ return (
                     </div>
                     <div className="mb-3">
                         <label htmlFor='pic' className='form-label'>Upload Image<span className='label-col'>*</span></label>
-                        <input type="file" name="pic" className={`form-control ${errors.pic?'is-invalid':''}`} placeholder='Choose the Image..'   onChange={handleFileChange}/>
+                        <input type="file" name="pic" className={`form-control ${errors.pic?'is-invalid':''}`} placeholder='Choose the Image..'  onChange={handleFileChange}/>
                         {errors.pic && <div className='invalid-feedback'>{errors.pic}</div>}
                         <div className='showImg'>{viewPic && <img src={viewPic} alt="image" width="100" height="100"/>}</div>
                     </div>
@@ -176,7 +219,7 @@ return (
                     </div>
 
                     <div className="d-grid justify-content-md-end">
-                        <button type="submit" className="btn btn-success" onClick={submitProducts}>Save</button>
+                        <button type="submit" className="btn btn-success" onClick={saveOrUpdateProducts}>Save</button>
                     </div>   
 
                 </form> 

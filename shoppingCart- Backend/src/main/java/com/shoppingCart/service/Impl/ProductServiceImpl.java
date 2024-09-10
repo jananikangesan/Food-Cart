@@ -1,6 +1,5 @@
 package com.shoppingCart.service.Impl;
 
-import com.shoppingCart.model.FileData;
 import com.shoppingCart.model.Product;
 import com.shoppingCart.repository.ProductRepository;
 import com.shoppingCart.service.ProductService;
@@ -47,6 +46,11 @@ public class ProductServiceImpl implements ProductService {
       return "Product Details deleted successfully";
     }
     return "no record found";
+  }
+
+  @Override
+  public Optional<Product> getProduct(String id) {
+    return productRepository.findById(id);
   }
 
 }
