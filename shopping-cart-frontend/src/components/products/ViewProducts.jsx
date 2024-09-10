@@ -9,6 +9,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import '../../css/Style.css';
 import { downloadImage } from '../../services/FileDataService';
+import Swal from 'sweetalert2';
 
 
 const ViewProducts = () => {
@@ -49,11 +50,34 @@ const ViewProducts = () => {
   };
 
   const handleDelete=(productId)=>{
-    deleteProduct(productId).then((response)=>{
-      console.log(response.data);
-    }).catch((error)=>{
-      console.error(error);
-    })
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        deleteProduct(productId).then((response)=>{
+          console.log(response.data);
+          Swal.fire({
+            title: "Deleted!",
+            text: "Product details have been deleted successfully.",
+            icon: "success"
+          });
+          
+          setProduct((prevProduct)=>prevProduct.filter((currentProduct)=>currentProduct.id!==productId))
+        }).catch((error)=>{
+          console.error(error);
+        })
+        
+      }
+    });
+    
   }
 
   const handleUpdate=(productId)=>{

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../css/Style.css';
 import { getProduct, saveProducts, updateProduct } from '../../services/ProductService';
 import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const CreateProduct = () => {
 
@@ -99,18 +100,43 @@ const CreateProduct = () => {
 
                 updateProduct(formData,id).then((response)=>{
                     console.log(response.data);
+                    Swal.fire({
+                        icon: "success",
+                        title:"Product is updated successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                     navigator("/showProducts")
                 }).catch((error)=>{
                     console.error(error);
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Error updating product",
+                    });
                 })
 
             }else{
 
                 saveProducts(formData).then((response)=>{
                     console.log(response.data);
+
+                    Swal.fire({
+                        icon: "success",
+                        title:"Product is added successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    
                     navigator('/showProducts');
                 }).catch((error) => {
                     console.error("Error saving product:", error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Error saving product",
+                    });
                 });
             }
             
