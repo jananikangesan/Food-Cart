@@ -1,5 +1,6 @@
 package com.shoppingCart.service.Impl;
 
+import com.shoppingCart.model.FileData;
 import com.shoppingCart.model.Product;
 import com.shoppingCart.repository.ProductRepository;
 import com.shoppingCart.service.ProductService;
@@ -26,6 +27,18 @@ public class ProductServiceImpl implements ProductService {
   public Optional<Product> findProduct(String id){
     return productRepository.findById(id);
   }
+
+  @Override
+  public Product updateProduct(Product product, String id) {
+    Boolean productDetails=productRepository.existsById(id);
+
+    if(productDetails){
+      product.setId(id);
+     return productRepository.save(product);
+    }
+    return null;
+  }
+
   @Override
   public String deleteProduct(String id) {
     Boolean student=productRepository.existsById(id);

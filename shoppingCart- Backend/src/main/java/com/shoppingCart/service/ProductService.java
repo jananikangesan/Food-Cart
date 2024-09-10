@@ -10,5 +10,6 @@ public interface ProductService {
   public Product saveProduct(Product product);
   public String deleteProduct(String id);
   public Optional<Product> findProduct(String id);
+  public Product updateProduct(Product product,String id);
 
 }

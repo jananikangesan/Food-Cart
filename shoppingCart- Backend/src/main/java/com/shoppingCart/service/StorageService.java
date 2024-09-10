@@ -14,4 +14,5 @@ public interface StorageService {
   public List<FileData> getAllProduct();
 
   public String deleteImage(String id);
+
 }

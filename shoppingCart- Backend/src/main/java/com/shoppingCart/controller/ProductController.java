@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,6 +80,37 @@ public class ProductController {
    return null;
   }
 
+  @PutMapping("/updateProduct/{id}")
+  public String updateProduct( @RequestParam("image") MultipartFile file,
+      @RequestParam("name") String name,
+      @RequestParam("amt") String amt,
+      @RequestParam("shop") String shop,
+      @RequestParam("ftype") String ftype,
+      @RequestParam("latest") String latest,@PathVariable String id) throws IOException {
+
+    Optional<Product> details=productService.findProduct(id);
+    Product product=details.get();
+
+    if(details.isPresent()) {
+      String fileOldId = product.getPic().getId();
+
+      FileData uploadImage = storageService.uploadImageToFileSystem(file);
+      product.setName(name);
+      product.setAmt(amt);
+      product.setShop(shop);
+      product.setFtype(ftype);
+      product.setLatest(latest);
+      product.setPic(uploadImage);
+
+      Product updateProduct = productService.updateProduct(product,id);
+      if (updateProduct != null && uploadImage != null) {
+        storageService.deleteImage(fileOldId);
+        return "Product is updated successfully";
+      }
+      return "Something went wrong...";
+    }
+    return null;
+  }
 }
 
 
