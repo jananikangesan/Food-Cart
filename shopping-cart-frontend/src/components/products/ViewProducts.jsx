@@ -109,6 +109,7 @@ const ViewProducts = () => {
             <th>Shop</th>
             <th>Food Type</th>
             <th>Amount</th>
+            <th>Stock</th>
             <th>Latest</th>
             <th>Image</th>
             <th colSpan={2}>Actions</th>
@@ -125,6 +126,7 @@ const ViewProducts = () => {
               <td>{item.shop}</td>
               <td>{item.ftype}</td>
               <td>Rs {item.amt}</td>
+              <td>{item.stock}</td>
               <td>{item.latest}</td>
               <td><img src={`images/${item.pic.name}`} alt={item.name} className='img-style' onClick={()=>handleDownload(item.pic.name)}/></td>
               <td><Button variant="primary"onClick={()=>handleUpdate(item.id)}><FaEdit /></Button></td>

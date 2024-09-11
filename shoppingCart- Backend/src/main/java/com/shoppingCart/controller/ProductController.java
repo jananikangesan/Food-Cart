@@ -48,6 +48,7 @@ public class ProductController {
       @RequestParam("amt") String amt,
       @RequestParam("shop") String shop,
       @RequestParam("ftype") String ftype,
+      @RequestParam("stock") int stock,
       @RequestParam("latest") String latest
   ) throws IOException {
 
@@ -60,6 +61,7 @@ public class ProductController {
     product.setFtype(ftype);
     product.setLatest(latest);
     product.setPic(uploadImage);
+    product.setStock(stock);
 
     Product addNew = productService.saveProduct(product);
 
@@ -86,6 +88,7 @@ public class ProductController {
       @RequestParam("amt") String amt,
       @RequestParam("shop") String shop,
       @RequestParam("ftype") String ftype,
+      @RequestParam("stock") int stock,
       @RequestParam("latest") String latest,@PathVariable String id) throws IOException {
 
     Optional<Product> details=productService.findProduct(id);
@@ -100,6 +103,7 @@ public class ProductController {
       product.setShop(shop);
       product.setFtype(ftype);
       product.setLatest(latest);
+      product.setStock(stock);
       product.setPic(uploadImage);
 
       Product updateProduct = productService.updateProduct(product,id);

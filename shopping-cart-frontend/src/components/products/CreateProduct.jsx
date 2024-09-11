@@ -10,6 +10,7 @@ const CreateProduct = () => {
     const [amt,setAmount]=useState('');
     const [shop,setShop]=useState('');
     const [ftype,setFtype]=useState('');
+    const [stock,setStock]=useState(0);
     const [pic,setPic]=useState(null);
     const [latest,setLatest]=useState('');
 
@@ -22,6 +23,7 @@ const CreateProduct = () => {
         amt:'',
         shop:'',
         ftype:'',
+        stock:'',
         pic:'',
         latest:''
     })
@@ -42,6 +44,7 @@ const CreateProduct = () => {
                 setAmount(response.data.amt);
                 setShop(response.data.shop);
                 setFtype(response.data.ftype);
+                setStock(response.data.stock);
                 setLatest(response.data.latest);
                 setPic(response.data.pic[0]);
 
@@ -89,6 +92,7 @@ const CreateProduct = () => {
             formData.append("amt", amt);
             formData.append("shop", shop);
             formData.append("ftype", ftype);
+            formData.append("stock",stock);
             formData.append("latest", latest);
 
             // Debugging: Log formData key-value pairs
@@ -181,6 +185,13 @@ const CreateProduct = () => {
             valid=false;
         }
 
+        if(stock.trim()){
+            errorsCopy.stock=''
+        }else{
+            errorsCopy.stock="Stock is required"
+            valid=false;
+        }
+
         if(pic){
             errorsCopy.pic=''
         }else{
@@ -227,6 +238,11 @@ return (
                         <label htmlFor='ftype' className='form-label'>Food Type<span className='label-col'>*</span></label>
                         <input type="text" name="ftype" className={`form-control ${errors.ftype?'is-invalid':''}`} placeholder='Enter the Food Type' value={ftype} onChange={(e)=>setFtype(e.target.value)}/>
                         {errors.ftype && <div className='invalid-feedback'>{errors.ftype}</div>}
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor='stock' className='form-label'>Stock<span className='label-col'>*</span></label>
+                        <input type="text" name="stock" className={`form-control ${errors.stock?'is-invalid':''}`} placeholder='Enter the stock' value={stock} onChange={(e)=>setStock(e.target.value)}/>
+                        {errors.stock && <div className='invalid-feedback'>{errors.stock}</div>}
                     </div>
                     <div className="mb-3">
                         <label htmlFor='pic' className='form-label'>Upload Image<span className='label-col'>*</span></label>

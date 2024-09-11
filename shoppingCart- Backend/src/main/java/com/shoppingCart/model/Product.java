@@ -23,10 +23,10 @@ public class Product {
   private String shop;
   private String ftype;
   private String latest;
-
   @OneToOne
   @JoinColumn(name = "pic")
   private FileData pic;
+  private int stock;
 
 
 
