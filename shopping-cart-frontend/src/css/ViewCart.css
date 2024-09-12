@@ -50,3 +50,13 @@
 .button-click{
     cursor: pointer;
 }
+.print-button{
+   cursor: pointer;
+   margin: 20px 20px;
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically (if needed) */
+    margin-top: 20px; /* Optional: Add margin if needed */
+}
