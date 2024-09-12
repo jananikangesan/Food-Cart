@@ -40,11 +40,13 @@
    cursor: pointer;
    right: 10px;
 }
-input[type="number"]{
-    width: 100px;
-    margin-left: 10px;
-}
+
 .cart-product-count{
-    display: flex;
-   
+    display: flex; 
+}
+.cart-product-count {
+    margin: 10px;
+}
+.button-click{
+    cursor: pointer;
 }
