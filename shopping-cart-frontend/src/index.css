@@ -1,0 +1,11 @@
+
+:root {
+    --bodyColor: "#000000";
+}
+
+body {
+    background-color: var(--bodyColor); /* For solid colors */
+
+    /* If you want to use a gradient, apply it to background directly */
+    background: var(--bodyColor); /* For gradients */
+}
