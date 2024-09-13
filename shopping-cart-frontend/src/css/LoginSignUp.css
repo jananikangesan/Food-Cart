@@ -95,3 +95,18 @@
     background: #eaeaea;
     color: #676767;
 }
+.btn-style{
+    background-color: #0d8e38;
+    color: #fff;
+    border-radius: 10px;
+    height: 50px;
+    width: 400px;
+    border: none;
+    margin: 20px;
+    font-size: 19px;
+    font-weight: 700;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+}
