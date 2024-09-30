@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +40,9 @@ public class ProductController {
 
   @GetMapping("/showAll")
   public List<Product> getProducts(){
+//    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//    System.out.println("Authenticated User: " + auth.getName());
+//    System.out.println("Authorities: " + auth.getAuthorities());
     return productService.getAllProduct();
   }
 

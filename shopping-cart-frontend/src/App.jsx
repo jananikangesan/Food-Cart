@@ -65,8 +65,6 @@ const AppContent = () => {
               </>
               
             )}
-         
-     
        
       </cartContext.Provider>
     </>
