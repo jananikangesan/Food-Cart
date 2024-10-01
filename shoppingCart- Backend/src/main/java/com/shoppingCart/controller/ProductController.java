@@ -40,9 +40,11 @@ public class ProductController {
 
   @GetMapping("/showAll")
   public List<Product> getProducts(){
-//    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//    System.out.println("Authenticated User: " + auth.getName());
-//    System.out.println("Authorities: " + auth.getAuthorities());
+
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    System.out.println("Authenticated User: " + auth.getName());
+    System.out.println("Authorities: " + auth.getAuthorities());
+
     return productService.getAllProduct();
   }
 

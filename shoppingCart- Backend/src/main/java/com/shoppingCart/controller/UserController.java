@@ -4,6 +4,7 @@ package com.shoppingCart.controller;
 import com.shoppingCart.model.User;
 import com.shoppingCart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,5 +29,10 @@ public class UserController {
       return "user is add successfully.";
     }
     return "Something went wrong...";
+  }
+
+  @PostMapping("/login")
+  public ResponseEntity<?> userLogin(@RequestBody User user){
+    return userService.loginUser(user);
   }
 }
