@@ -29,7 +29,7 @@ const AdminRoutes = () => (
 
 const AppContent = () => {
   const [cart, setCart] = useState([]);
-  const [role, setRole] = useState(localStorage.getItem('userRole') || '');
+  const [role, setRole] = useState(sessionStorage.getItem('userRole') || '');
   const location = useLocation(); // Hook for current path
 
   // Define paths where header and footer should be hidden
@@ -38,7 +38,7 @@ const AppContent = () => {
   // Conditional logic to show or hide header and footer based on current path
   const showHeaderFooter = noHeaderFooterRoutes.includes(location.pathname);
 
-  console.log(role);
+  console.log("role: "+role);
 
   return (
     <>

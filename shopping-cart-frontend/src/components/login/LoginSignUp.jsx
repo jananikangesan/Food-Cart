@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../../css/LoginSignUp.css';
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -7,9 +7,13 @@ import SetBodyColor from'../SetBodyColor';
 import { userLogin, userSignUp } from '../../services/UserService';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { cartContext } from '../cartContext';
 
 const LoginSignUp = () => {
     const [action,setAction]=useState("Sign Up");
+
+    const { role,setRole } = useContext(cartContext);
+
 
     const navigate = useNavigate();
     
@@ -184,14 +188,16 @@ const LoginSignUp = () => {
 
                 const loginResponse = response.data;
 
-                localStorage.setItem('userEmail', loginData.email); // Example of storing email
-                localStorage.setItem('userRole', loginResponse.roles); // Example of storing role
-                localStorage.setItem('loginMessage', loginResponse.message); // Store login message
+                sessionStorage.setItem('userEmail', loginData.email); // Example of storing email
+                sessionStorage.setItem('userRole', loginResponse.roles[0]); // Example of storing role
+                sessionStorage.setItem('loginMessage', loginResponse.message); // Store login message
+
+               setRole(loginResponse.roles[0]);
 
                 // Redirect based on role
-                if (localStorage.getItem('userRole') === 'admin') {
+                if (loginResponse.roles[0] === 'admin') {
                     navigate('/showProducts'); // Admin dashboard route
-                } else if (localStorage.getItem('userRole') === 'user') {
+                } else if (loginResponse.roles[0] === 'user') {
                     navigate('/Home'); // User home route
                 } 
 

@@ -137,7 +137,7 @@ const ViewCart = () => {
         </div>
         <h2 className='cart-amt'>Total Amount Rs: {total}</h2>
         <div className="button-container">
-            <Button variant="secondary" onClick={generatePDF} className='print-button'><FaPrint /> Invoice</Button>
+          {total>0 &&  <Button variant="secondary" onClick={generatePDF} className='print-button'><FaPrint /> Invoice</Button>}
         </div>
     </>
   )
