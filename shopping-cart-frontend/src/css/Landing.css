@@ -1,0 +1,117 @@
+.landing-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+}
+.landing-header{
+    height:14%;
+    width: 100%;
+    background-color: rgb(229, 245, 235);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.landing-header ul{
+    display: inline-flex;
+    gap: 10px;
+}
+.landing-header ul li{
+    list-style-type: none;
+}
+
+.landing-header ul li a{
+    color: #fff;
+    text-decoration:none;
+    padding: 10px;
+}
+
+.logo img{
+    height:80px;
+    width: 120px;
+    border-radius: 50px;
+}
+.landing-body .row1{
+    background-image: url("green-leaves.jpg");
+    height: 65vh;
+    
+}
+.btn-align{
+    background-color: #0d8e38;
+    border-radius: 20px;
+    height: 40px;
+    width: 80px;
+    border: none;
+    margin: 20px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.btn-align:hover{
+    background-color: #2ace61;
+}
+.heading{
+    color: rgb(8, 121, 25);
+    font-weight: 650;
+    font-style:oblique;
+}
+.food-img{
+    height: 350px;
+    width: 350px;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+}
+.para{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.foods-img{
+    height: 250px;
+    width: 250px;
+    align-items: center;
+    display: flex;
+    border-radius: 25%;
+    margin-left: 60px;
+    padding-left: 50px;
+}
+
+.landing-body .row2{
+    background-color: rgb(240, 240, 221);
+    height: 60vh;
+}
+
+.row2 .heading2{
+    color: rgb(8, 121, 25);
+    font-weight: 650;
+    font-style:oblique;
+    margin-left: 40px;
+}
+.food-delivery{
+    height:300px;
+    width: 350px;
+    align-items:center;
+    display: flex;
+}
+.para2{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 30px;
+    font-style:oblique; 
+}
+.explore{
+    background-color: #0d8e38;
+    border-radius: 40px;
+    height: 50px;
+    width: 200px;
+    border: none;
+    margin-left: 30px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
+}
+.explore:hover{
+    background-color: #13682f;
+}

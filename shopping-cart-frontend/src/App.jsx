@@ -10,6 +10,7 @@ import Search from './components/Search';
 import ViewProducts from './components/products/ViewProducts';
 import CreateProduct from './components/products/CreateProduct';
 import LoginSignUp from './components/login/LoginSignUp';
+import Landing from './components/Landing';
 
 const UserRoutes = () => (
   <Routes>
@@ -33,7 +34,7 @@ const AppContent = () => {
   const location = useLocation(); // Hook for current path
 
   // Define paths where header and footer should be hidden
-  const noHeaderFooterRoutes = ['/login']; // Add more paths as needed
+  const noHeaderFooterRoutes = ['/login','/']; // Add more paths as needed
 
   // Conditional logic to show or hide header and footer based on current path
   const showHeaderFooter = noHeaderFooterRoutes.includes(location.pathname);
@@ -47,6 +48,7 @@ const AppContent = () => {
             {/* Login page rendered outside the container */}
             {showHeaderFooter ? (
               <Routes>
+                <Route path='/' element={<Landing/>}/>
                 <Route path='/login' element={<LoginSignUp />} />
               </Routes>
             ) : (
@@ -67,7 +69,6 @@ const AppContent = () => {
               </>
               
             )}
-       
       </cartContext.Provider>
     </>
   );

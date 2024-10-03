@@ -16,7 +16,7 @@ const LoginSignUp = () => {
 
 
     const navigate = useNavigate();
-    
+
     //SetBodyColor({color:"linear-gradient(#2A00B7, #42006C)"})
 
     const [formData,setFormData]=useState({
@@ -214,7 +214,8 @@ const LoginSignUp = () => {
     }
 
   return (
-    <div className="login-container">
+<div className="login-style">
+<div className="login-container">
         <div className="header">
             <div className="text">{action}</div>
             <div className="underline"></div>
@@ -287,6 +288,8 @@ const LoginSignUp = () => {
             <div className={action==="Sign Up"?"submit gray":"submit"} onClick={()=>{setAction("Login")}}>Login</div>
         </div>
     </div>
+</div>
+    
   )
 }
 

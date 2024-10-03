@@ -1,3 +1,8 @@
+.login-style{
+    height: 120vh;
+    width: 100vw;
+    background-color: #4c00b4;
+}
 
 .login-container{
     display: flex;
